@@ -19,6 +19,10 @@ module OmniAuth
         super
       end
 
+      def callback_url
+        full_host + script_name + callback_path
+      end
+
       uid { raw_info['userId'] }
 
       info do
