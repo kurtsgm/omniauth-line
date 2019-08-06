@@ -29,7 +29,7 @@ module OmniAuth
         Rails.logger.info "INFO here"
         Rails.logger.info raw_info
         Rails.logger.info params
-        Rails.logger.info  ENV['LINE_CHANNEL_SECRET'])
+        Rails.logger.info  ENV['LINE_CHANNEL_SECRET']
         {
           name:        raw_info['displayName'],
           image:       raw_info['pictureUrl'],
