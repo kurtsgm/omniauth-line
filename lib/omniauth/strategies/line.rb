@@ -30,14 +30,14 @@ module OmniAuth
       info do
         Rails.logger.info "INFO here"
         Rails.logger.info access_token.params
-        Rails.logger.info client_secret
+        Rails.logger.info options[:client_secret]
         Rails.logger.info raw_info
 
         {
           name:        raw_info['displayName'],
           image:       raw_info['pictureUrl'],
           description: raw_info['statusMessage'],
-          email: JWT.decode(access_token.params['id_token'], client_secret).first['email']
+          email: JWT.decode(access_token.params['id_token'], options[:client_secret]).first['email']
         }
       end
 
