@@ -29,7 +29,8 @@ module OmniAuth
         {
           name:        raw_info['displayName'],
           image:       raw_info['pictureUrl'],
-          description: raw_info['statusMessage']
+          description: raw_info['statusMessage'],
+          email:    JWT.decode(access_token.params['id_token'], ENV['LINE_CHANNEL_SECRET']).first['email'] 
         }
       end
 
