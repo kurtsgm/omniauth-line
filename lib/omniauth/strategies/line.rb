@@ -26,11 +26,12 @@ module OmniAuth
       uid { raw_info['userId'] }
 
       info do
+        Rails.logger.info "INFO here"
+        Rails.logger.info raw_info
         {
           name:        raw_info['displayName'],
           image:       raw_info['pictureUrl'],
           description: raw_info['statusMessage'],
-          email:    JWT.decode(access_token.params['id_token'], ENV['LINE_CHANNEL_SECRET']).first['email'] 
         }
       end
 
